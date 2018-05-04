@@ -1,0 +1,13 @@
+{
+  package bug
+}
+
+Start <- List         // NOTE: changing List to X here makes the bug disappear
+List <- X ( ',' X )*  // NOTE: changing X to Y here makes the bug disappear
+X <- 'X' Y?           // NOTE: removing the "?" makes the bug disappear
+Y <- 'Y'
+  {
+    // NOTE: code block required for the bug, gets rendered twice with --optimize-grammar
+    return nil, nil
+  }
+
