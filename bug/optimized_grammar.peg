@@ -6,6 +6,11 @@
 // optimization of grammar.peg with --optimize-grammar.
 
 Start <- List
+
+// The same code block gets referred to in two different places,
+// resulting in duplicate functions being rendered in the generated
+// code.
+
 List <- ( "X" "Y"? {
   return nil, nil
 } ) ( "X" "Y"? {
