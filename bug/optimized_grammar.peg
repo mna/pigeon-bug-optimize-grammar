@@ -1,0 +1,14 @@
+{
+  package bug
+}
+
+// This is the grammar equivalent of the AST resulting of the
+// optimization of grammar.peg with --optimize-grammar.
+
+Start <- List
+List <- ( "X" "Y"? {
+  return nil, nil
+} ) ( "X" "Y"? {
+  return nil, nil
+} )?
+
